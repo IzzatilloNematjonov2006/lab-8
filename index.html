@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Style Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Customize Your Text Style!</h1>
+        <div id="inside-main">
+            <p id="text">This text paragraph gonna change its size depending on your choice.</p>
+            <form>
+                <label>Font Size:</label>
+                <input type="number" id="font-size-input">
+                <label>Font Color:</label>
+                <input type="color" id="font-color-input">
+                <label>Font Family:</label>
+                <select id="font-family-input">
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                </select>
+                <button type="submit" onclick="changeFontSize(event)">Apply Style</button>
+                
+            </form>
+        </div>
+        <script>
+            function changeFontSize(event){
+                event.preventDefault();
+                const fontSize = document.getElementById("font-size-input").value;
+                const textElement = document.getElementById("text");
+                const fontColor = document.getElementById("font-color-input").value;
+                const fontFamily = document.getElementById("font-family-input").value;
+                if (fontSize >= 1 && fontSize <= 100){textElement.style.fontSize = fontSize + "px";
+                }else{
+                alert("Please enter a font size between 1 and 100.");
+                }
+                textElement.style.color = fontColor;
+                textElement.style.fontFamily = fontFamily;
+            }
+        </script>
+    </main>
+</body>
+</html>
